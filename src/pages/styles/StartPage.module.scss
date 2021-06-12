@@ -1,0 +1,135 @@
+@import "../../../styles/flex.scss";
+@import '../../../styles/variables.scss';
+
+$transition-time: 1000ms;
+
+.startPage {
+  @include flex-column(0, flex-start, flex-start);
+  position: relative;
+}
+
+.imgContainer {
+  @include flex-row(0, flex-end, center);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  img {
+    width: 600px;
+    height: 600px;
+    margin-right: 50px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 10px black;
+    z-index: 999;
+  }
+}
+
+.textEnter {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+.textEnterActive {
+  transform: translateX(0);
+  opacity: 1;
+  transition: opacity 0ms, transform $transition-time;
+}
+
+.iconEnter {
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+.iconEnterActive {
+  transform: translateY(0);
+  opacity: 1;
+  transition: opacity 0ms, transform $transition-time;
+}
+
+.imgAppear {
+  transform: translateX(100%);
+}
+
+.imgAppearActive {
+  transform: translateX(0);
+  transition: transform $transition-time;
+}
+
+.startPageTop {
+  width: 100%;
+  height: 27%;
+  background-color: $yellow;
+}
+
+.startPageTopContainer {
+  padding: 30px;
+  h1, h2 {
+    color: $black;
+  }
+  h1 {
+    font-size: 50px;
+  }
+  h2 {
+    font-size: 25px;
+  }
+}
+
+.colorAppear {
+  transform-origin: left;
+  transform: scaleX(0);
+  .startPageContainer .startPageTopContainer .socialMedia {
+    opacity: 0;
+  }
+}
+
+.colorAppearActive {
+  transform: scaleX(1);
+  transition: transform $transition-time;
+}
+
+.startPageBottom {
+  width: 100%;
+  height: 73%;
+  background-color: $skin;
+}
+
+.startPageContainer {
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+  @include flex-column(10px, flex-start, flex-start);
+  h2 {
+    font-size: 30px;
+    color: $black;
+  }
+  p {
+    color: $black;
+    text-shadow: 0px 0px 0.1px gray;
+    width: calc(100% - 680px);
+    font-size: 18px;
+    text-align: justify;
+  }
+}
+
+.socialMedia {
+  @include flex-row(50px, center, center);
+  width: calc(100% - 680px);
+  margin-top: 40px;
+  img {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+.zeroOpacity {
+  opacity: 0;
+}
+
+.oneOpacity {
+  opacity: 1;
+}
+
+// .startPageBottom {
+//   width: 100%;
+//   height: 34%;
+//   background-color: $brown;
+// }
